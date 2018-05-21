@@ -14,11 +14,11 @@ app.get('/', (req, res) => {
 
 app.post('/api/add_product', (req, res) => {
   Item.create({
-    name: 'Test',
-    description: 'Test',
-    price: 100,
-    productId: 1,
-    department: 'Sports'
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+    productId: req.body.productId,
+    department: req.body.department
   }).then(obj => res.json(obj));
 });
 
