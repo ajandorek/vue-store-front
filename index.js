@@ -28,6 +28,16 @@ app.post('/api/add_product', (req, res) => {
   }).then(obj => res.json(obj));
 });
 
+app.get('/api/products', (req, res) => {
+  Item.find({}).exec((err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
 });
